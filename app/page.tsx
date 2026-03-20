@@ -15,6 +15,18 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+type ExerciseResult = {
+  weight: number;
+  reps: number;
+};
+
+type HistoryEntry = {
+  date: string;
+  dayId: string;
+  exerciseResults: Record<string, ExerciseResult[]>;
+  notes: string;
+};
+
 const initialProgram = {
   name: "Adeptus Forge Split",
   days: [
@@ -73,7 +85,7 @@ const initialProgram = {
   ],
 };
 
-const initialHistory = [
+const initialHistory = HistoryEntry[] = [
   {
     date: "2026-03-12",
     dayId: "push-heavy",
@@ -126,7 +138,7 @@ export default function Page() {
   const [activeTab, setActiveTab] = useState<"today" | "dashboard" | "history" | "notes">("today");
   const [program] = useState(initialProgram);
   const [selectedDayId, setSelectedDayId] = useState(program.days[0].id);
-  const [history, setHistory] = useState(initialHistory);
+  const [history, setHistory] = useState<HistoryEntry[]>(initialHistory);
   const [exerciseLogs, setExerciseLogs] = useState<Record<string, SetEntry[]>>({});
   const [sessionNotes, setSessionNotes] = useState("");
   const [cardioMinutes, setCardioMinutes] = useState("");
