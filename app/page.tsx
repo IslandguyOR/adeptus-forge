@@ -85,7 +85,7 @@ const initialProgram = {
   ],
 };
 
-const initialHistory = HistoryEntry[] = [
+const initialHistory:istoryEntry[] = [
   {
     date: "2026-03-12",
     dayId: "push-heavy",
